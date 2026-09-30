@@ -1,9 +1,21 @@
 # ML Model Monitoring
 
-A small monitoring lab for detecting data drift and comparing model performance across reference and current datasets.
+## Goal
+Demonstrate the first layer of ML observability: compare reference and current feature distributions and report model performance.
 
-The baseline creates a reference/current split from the Iris dataset, computes per-feature distribution statistics and trains a classifier for comparison.
+## Data source
+The baseline uses scikit-learn's built-in Iris dataset through `sklearn.datasets.load_iris`, so no external download is required.
 
-Run `pip install -r requirements.txt` then `python monitor.py`.
+## Architecture
+Reference/current split → feature distribution comparison → model training → held-out evaluation → monitoring output.
 
-Next experiments: Evidently, PSI, KS tests, alert thresholds, model registry integration and scheduled monitoring.
+## Run
+`pip install -r requirements.txt`
+
+`python monitor.py`
+
+## Why monitoring matters
+A model can remain unchanged while the world around it changes. Data drift, label drift and performance degradation can turn a previously acceptable model into an unreliable system.
+
+## Next level
+Add PSI/KS tests, rolling windows, label-delay handling, model-performance tracking, alert thresholds, dashboards and scheduled monitoring.
