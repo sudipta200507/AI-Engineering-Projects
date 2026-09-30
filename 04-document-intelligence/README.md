@@ -1,9 +1,22 @@
 # Document Intelligence Baseline
 
-Extract text from PDFs and classify the document with a lightweight local NLP model.
+## Goal
+Extract text from PDFs through a deterministic parsing stage so later NLP models receive structured input.
 
-Put PDFs in `documents/`, install dependencies and run `python extract.py`.
+## Data source
+No external corpus is required. Put PDFs you are authorized to process into `documents/`. Do not commit confidential documents.
 
-The extraction stage uses PyMuPDF. The classification stage is intentionally simple so you can later replace it with a fine-tuned transformer.
+## Architecture
+PDF → PyMuPDF extraction → normalized text → downstream NLP/classification.
 
-Study document parsing, chunking, text classification, confidence thresholds and human review.
+The repository intentionally separates extraction from model inference. This mirrors real document-AI systems where parsing failures can be different from model failures.
+
+## Run
+`pip install -r requirements.txt`
+
+Put PDFs in `documents/` and run `python extract.py`.
+
+Extracted `.txt` files are written to `output/`.
+
+## Next level
+Add OCR for scanned PDFs, layout-aware extraction, tables, document classification, structured JSON extraction, confidence scores and human review.
