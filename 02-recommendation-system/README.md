@@ -1,9 +1,24 @@
 # Recommendation System
 
-Build a content-based movie recommender using public MovieLens ratings and item metadata.
+## Goal
+Build an inspectable content-based recommendation baseline and establish a path toward collaborative filtering.
 
-The baseline represents items by genre features and ranks candidates with cosine similarity. This makes the recommendation logic inspectable before moving to collaborative filtering or neural recommenders.
+## Dataset
+**MovieLens latest-small — GroupLens Research.**
+Official page: https://grouplens.org/datasets/movielens/
+Exact archive: https://files.grouplens.org/datasets/movielens/ml-latest-small.zip
 
-Run `pip install -r requirements.txt` then `python train.py`.
+## Architecture
+Movie metadata → genre normalization → TF-IDF representation → cosine similarity → ranked recommendations.
 
-Next experiments: user-user collaborative filtering, matrix factorisation, implicit feedback and ranking metrics.
+## Run
+`pip install -r requirements.txt`
+`python train.py`
+
+Enter part of a movie title when prompted.
+
+## Why this baseline
+It makes the ranking mechanism transparent before introducing matrix factorization or neural recommenders.
+
+## Next level
+Add collaborative filtering, user/item embeddings, implicit-feedback ranking, Precision@K, Recall@K, NDCG and cold-start handling.
